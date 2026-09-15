@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head><!DOCTYPE html>
-<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +27,6 @@
             flex-direction: column;
             align-items: center;
             padding: 3rem 1rem;
-            /* Cyber Grid Background */
             background-image: 
                 linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
@@ -38,7 +35,6 @@
             background-attachment: fixed;
         }
 
-        /* Glassmorphism Container */
         .app-container {
             width: 100%;
             max-width: 1000px;
@@ -50,58 +46,39 @@
             padding: 2.5rem;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             position: relative;
-            overflow: hidden;
         }
 
-        /* Glow effect line top */
         .app-container::before {
             content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; height: 2px;
+            position: absolute; top: 0; left: 0; right: 0; height: 2px;
             background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
         }
 
         .header { text-align: center; margin-bottom: 2.5rem; }
         
         .logo {
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -1px;
+            font-size: 2.5rem; font-weight: 800; letter-spacing: -1px;
             background: linear-gradient(to right, #fff, var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             display: inline-block;
         }
 
         .logo span { color: var(--primary); -webkit-text-fill-color: var(--primary); }
         .subtitle { color: var(--text-muted); font-size: 1rem; margin-top: 0.5rem; font-weight: 300; }
 
-        /* Dropzone Advanced */
         .dropzone {
             border: 2px dashed rgba(0, 240, 255, 0.3);
-            border-radius: 16px;
-            padding: 3.5rem 2rem;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            background: rgba(0, 0, 0, 0.2);
-            position: relative;
+            border-radius: 16px; padding: 3.5rem 2rem;
+            text-align: center; transition: all 0.4s ease;
+            cursor: pointer; background: rgba(0, 0, 0, 0.2);
         }
 
         .dropzone:hover, .dropzone.dragover {
-            border-color: var(--primary);
-            background: rgba(0, 240, 255, 0.03);
-            box-shadow: var(--glow);
-            transform: translateY(-2px);
+            border-color: var(--primary); background: rgba(0, 240, 255, 0.03);
+            box-shadow: var(--glow); transform: translateY(-2px);
         }
 
-        .dropzone-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-            filter: drop-shadow(0 0 10px rgba(0,240,255,0.5));
-        }
-
+        .dropzone-icon { font-size: 3.5rem; margin-bottom: 1rem; display: inline-block; filter: drop-shadow(0 0 10px rgba(0,240,255,0.5)); }
         .dropzone h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
         .dropzone h3 span { color: var(--primary); }
         .dropzone p { color: #64748b; font-size: 0.9rem; }
@@ -110,40 +87,24 @@
             font-family: monospace; font-size: 0.85rem; color: #fff; border: 1px solid #334155;
         }
 
-        /* Preview Grid with Drag & Drop styling */
         .preview-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2.5rem;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1.5rem; margin-top: 2.5rem;
         }
 
         .preview-item {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            aspect-ratio: 1;
-            background: #000;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-            cursor: grab;
+            position: relative; border-radius: 12px; overflow: hidden;
+            aspect-ratio: 1; background: #000; border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.2s, box-shadow 0.2s; cursor: grab;
             animation: fadeIn 0.4s ease-out;
         }
 
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
-
         .preview-item:active { cursor: grabbing; transform: scale(0.95); }
         .preview-item.drag-over { border: 2px dashed var(--primary); opacity: 0.7; }
-
-        .preview-item img {
-            width: 100%; height: 100%;
-            object-fit: cover; 
-            opacity: 0.8; transition: 0.3s;
-        }
-        
+        .preview-item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: 0.3s; }
         .preview-item:hover img { opacity: 1; transform: scale(1.05); }
 
-        /* Badge số thứ tự */
         .item-number {
             position: absolute; top: 8px; left: 8px;
             background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(4px);
@@ -162,7 +123,6 @@
 
         .remove-btn:hover { background: #dc2626; transform: scale(1.15); box-shadow: 0 0 10px rgba(239, 68, 68, 0.5); }
 
-        /* Controls / Actions */
         .actions {
             display: flex; justify-content: space-between; align-items: center;
             margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);
@@ -187,13 +147,11 @@
             content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
             background: rgba(255,255,255,0.2); transform: rotate(45deg); transition: all 0.3s ease; opacity: 0;
         }
-
         .btn-primary:hover { box-shadow: 0 6px 25px rgba(0, 240, 255, 0.5); transform: translateY(-2px); }
         .btn-primary:hover::after { opacity: 1; transform: rotate(45deg) translate(50%, 50%); }
         .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
         .status { color: var(--primary); font-size: 0.95rem; font-weight: 500; display: none; }
-        
         input[type="file"] { display: none; }
     </style>
 </head>
@@ -212,9 +170,7 @@
             <input type="file" id="fileInput" multiple accept="image/png, image/jpeg, image/webp, image/jpg">
         </div>
 
-        <div class="preview-grid" id="previewGrid">
-            <!-- Render ảnh ở đây -->
-        </div>
+        <div class="preview-grid" id="previewGrid"></div>
 
         <div class="actions">
             <button class="btn btn-clear" id="clearBtn" style="display: none;">
@@ -238,7 +194,6 @@
         let imagesData = []; 
         let dragSrcEl = null; 
 
-        // ===== XỬ LÝ SỰ KIỆN CLICK & DRAG/DROP FILE =====
         dropzone.addEventListener('click', () => fileInput.click());
         dropzone.addEventListener('dragover', (e) => { e.preventDefault(); dropzone.classList.add('dragover'); });
         dropzone.addEventListener('dragleave', () => dropzone.classList.remove('dragover'));
@@ -248,7 +203,6 @@
         });
         fileInput.addEventListener('change', (e) => { handleFiles(e.target.files); fileInput.value = ''; });
 
-        // ===== XỬ LÝ SỰ KIỆN DÁN ẢNH (CTRL+V) =====
         window.addEventListener('paste', (e) => {
             const items = e.clipboardData.items;
             const files = [];
@@ -258,7 +212,6 @@
             if (files.length > 0) handleFiles(files);
         });
 
-        // ===== ĐỌC FILE =====
         function handleFiles(files) {
             for (let i = 0; i < files.length; i++) {
                 const file = files[i];
@@ -272,7 +225,6 @@
             }
         }
 
-        // ===== RENDER & KÉO THẢ ĐỔI VỊ TRÍ (REORDER) =====
         function renderPreview() {
             previewGrid.innerHTML = '';
             imagesData.forEach((data, index) => {
@@ -306,7 +258,6 @@
             clearBtn.style.display = imagesData.length > 0 ? 'flex' : 'none';
         }
 
-        // --- Logic Kéo thả đổi vị trí ---
         function handleDragStart(e) {
             dragSrcEl = this;
             e.dataTransfer.effectAllowed = 'move';
@@ -339,7 +290,6 @@
             }
         });
 
-        // ===== XUẤT FILE PDF =====
         generateBtn.addEventListener('click', async () => {
             if (imagesData.length === 0) {
                 alert("Vui lòng thêm ít nhất 1 ảnh!"); return;
@@ -357,7 +307,6 @@
                     await addImageToPdf(pdf, imagesData[i].src, i === 0);
                 }
 
-                // Đặt tên file mang thương hiệu PicDF + Timestamp
                 const dateTag = new Date().toISOString().slice(0,10).replace(/-/g,"");
                 const timeTag = new Date().getTime().toString().slice(-4);
                 const fileName = `picdf_export_${dateTag}_${timeTag}.pdf`;
@@ -375,7 +324,6 @@
             }
         });
 
-        // Hàm tính toán và chèn ảnh (Đã gỡ bỏ margin, ảnh giãn kịch viền)
         function addImageToPdf(pdf, imgData, isFirstPage) {
             return new Promise((resolve) => {
                 const img = new Image();
@@ -384,414 +332,7 @@
                     const pdfWidth = pdf.internal.pageSize.getWidth();
                     const pdfHeight = pdf.internal.pageSize.getHeight();
                     
-                    // Tính toán tỷ lệ dựa trực tiếp trên kích thước A4 (không trừ lề)
                     const ratio = Math.min(pdfWidth / img.width, pdfHeight / img.height);
-                    const finalWidth = img.width * ratio;
-                    const finalHeight = img.height * ratio;
-                    
-                    // Căn giữa hình vào trang giấy
-                    const x = (pdfWidth - finalWidth) / 2;
-                    const y = (pdfHeight - finalHeight) / 2;
-
-                    if (!isFirstPage) pdf.addPage();
-                    pdf.addImage(imgData, 'JPEG', x, y, finalWidth, finalHeight);
-                    resolve();
-                };
-            });
-        }
-    </script>
-</body>
-</html>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PicDF | The Ultimate Image to PDF Tool</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <style>
-        :root {
-            --primary: #00f0ff;
-            --secondary: #7000ff;
-            --bg-base: #030712;
-            --panel-bg: rgba(17, 24, 39, 0.65);
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-color: rgba(51, 65, 85, 0.5);
-            --glow: 0 0 20px rgba(0, 240, 255, 0.3);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; }
-
-        body {
-            background-color: var(--bg-base);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 3rem 1rem;
-            /* Cyber Grid Background */
-            background-image: 
-                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
-                radial-gradient(circle at 50% 0%, rgba(112, 0, 255, 0.15), transparent 50%);
-            background-size: 30px 30px, 30px 30px, 100% 100%;
-            background-attachment: fixed;
-        }
-
-        /* Glassmorphism Container */
-        .app-container {
-            width: 100%;
-            max-width: 1000px;
-            background: var(--panel-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 24px;
-            padding: 2.5rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Glow effect line top */
-        .app-container::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; height: 2px;
-            background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
-        }
-
-        .header { text-align: center; margin-bottom: 2.5rem; }
-        
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            background: linear-gradient(to right, #fff, var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-        }
-
-        .logo span { color: var(--primary); -webkit-text-fill-color: var(--primary); }
-        .subtitle { color: var(--text-muted); font-size: 1rem; margin-top: 0.5rem; font-weight: 300; }
-
-        /* Dropzone Advanced */
-        .dropzone {
-            border: 2px dashed rgba(0, 240, 255, 0.3);
-            border-radius: 16px;
-            padding: 3.5rem 2rem;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            background: rgba(0, 0, 0, 0.2);
-            position: relative;
-        }
-
-        .dropzone:hover, .dropzone.dragover {
-            border-color: var(--primary);
-            background: rgba(0, 240, 255, 0.03);
-            box-shadow: var(--glow);
-            transform: translateY(-2px);
-        }
-
-        .dropzone-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-            filter: drop-shadow(0 0 10px rgba(0,240,255,0.5));
-        }
-
-        .dropzone h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
-        .dropzone h3 span { color: var(--primary); }
-        .dropzone p { color: #64748b; font-size: 0.9rem; }
-        .dropzone .kbd {
-            background: #1e293b; padding: 0.2rem 0.5rem; border-radius: 4px;
-            font-family: monospace; font-size: 0.85rem; color: #fff; border: 1px solid #334155;
-        }
-
-        /* Preview Grid with Drag & Drop styling */
-        .preview-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2.5rem;
-        }
-
-        .preview-item {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            aspect-ratio: 1;
-            background: #000;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-            cursor: grab;
-            animation: fadeIn 0.4s ease-out;
-        }
-
-        @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
-
-        .preview-item:active { cursor: grabbing; transform: scale(0.95); }
-        .preview-item.drag-over { border: 2px dashed var(--primary); opacity: 0.7; }
-
-        .preview-item img {
-            width: 100%; height: 100%;
-            object-fit: cover; /* Đổi thành cover để grid đẹp hơn, khi xuất PDF vẫn lấy tỷ lệ gốc */
-            opacity: 0.8; transition: 0.3s;
-        }
-        
-        .preview-item:hover img { opacity: 1; transform: scale(1.05); }
-
-        /* Badge số thứ tự */
-        .item-number {
-            position: absolute; top: 8px; left: 8px;
-            background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(4px);
-            color: var(--primary); font-size: 0.75rem; font-weight: bold;
-            padding: 2px 8px; border-radius: 12px; border: 1px solid rgba(0, 240, 255, 0.3);
-            pointer-events: none; z-index: 2;
-        }
-
-        .remove-btn {
-            position: absolute; top: 8px; right: 8px;
-            background: rgba(239, 68, 68, 0.9); color: white;
-            border: none; width: 26px; height: 26px; border-radius: 50%;
-            cursor: pointer; display: flex; align-items: center; justify-content: center;
-            font-size: 0.9rem; transition: 0.2s; z-index: 2;
-        }
-
-        .remove-btn:hover { background: #dc2626; transform: scale(1.15); box-shadow: 0 0 10px rgba(239, 68, 68, 0.5); }
-
-        /* Controls / Actions */
-        .actions {
-            display: flex; justify-content: space-between; align-items: center;
-            margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);
-        }
-
-        .btn {
-            padding: 0.8rem 1.75rem; border-radius: 10px; font-size: 1rem; font-weight: 600;
-            cursor: pointer; transition: all 0.3s ease; border: none; outline: none;
-            display: flex; align-items: center; gap: 0.5rem;
-        }
-
-        .btn-clear { background: transparent; color: #ef4444; border: 1px solid rgba(239,68,68,0.3); }
-        .btn-clear:hover { background: rgba(239,68,68,0.1); border-color: #ef4444; }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: #fff; text-transform: uppercase; letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3); position: relative; overflow: hidden;
-        }
-
-        .btn-primary::after {
-            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: rgba(255,255,255,0.2); transform: rotate(45deg); transition: all 0.3s ease; opacity: 0;
-        }
-
-        .btn-primary:hover { box-shadow: 0 6px 25px rgba(0, 240, 255, 0.5); transform: translateY(-2px); }
-        .btn-primary:hover::after { opacity: 1; transform: rotate(45deg) translate(50%, 50%); }
-        .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
-
-        .status { color: var(--primary); font-size: 0.95rem; font-weight: 500; display: none; }
-        
-        input[type="file"] { display: none; }
-    </style>
-</head>
-<body>
-
-    <div class="app-container">
-        <div class="header">
-            <h1 class="logo">PicDF<span>.</span></h1>
-            <p class="subtitle">Trải nghiệm công cụ chuyển đổi Ảnh sang PDF thế hệ mới</p>
-        </div>
-
-        <div class="dropzone" id="dropzone">
-            <span class="dropzone-icon">🌩️</span>
-            <h3>Kéo thả ảnh vào đây hoặc <span>Duyệt File</span></h3>
-            <p>Hỗ trợ thao tác dán siêu tốc <span class="kbd">Ctrl</span> + <span class="kbd">V</span> từ bộ nhớ đệm</p>
-            <input type="file" id="fileInput" multiple accept="image/png, image/jpeg, image/webp, image/jpg">
-        </div>
-
-        <div class="preview-grid" id="previewGrid">
-            <!-- Render ảnh ở đây -->
-        </div>
-
-        <div class="actions">
-            <button class="btn btn-clear" id="clearBtn" style="display: none;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg> Xóa tất cả
-            </button>
-            <span class="status" id="statusMsg">✨ Đang biên dịch PDF...</span>
-            <button class="btn btn-primary" id="generateBtn" style="margin-left: auto;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> Xuất File PDF
-            </button>
-        </div>
-    </div>
-
-    <script>
-        const dropzone = document.getElementById('dropzone');
-        const fileInput = document.getElementById('fileInput');
-        const previewGrid = document.getElementById('previewGrid');
-        const generateBtn = document.getElementById('generateBtn');
-        const clearBtn = document.getElementById('clearBtn');
-        const statusMsg = document.getElementById('statusMsg');
-        
-        let imagesData = []; 
-        let dragSrcEl = null; // Dành cho drag & drop reorder
-
-        // ===== XỬ LÝ SỰ KIỆN CLICK & DRAG/DROP FILE =====
-        dropzone.addEventListener('click', () => fileInput.click());
-        dropzone.addEventListener('dragover', (e) => { e.preventDefault(); dropzone.classList.add('dragover'); });
-        dropzone.addEventListener('dragleave', () => dropzone.classList.remove('dragover'));
-        dropzone.addEventListener('drop', (e) => {
-            e.preventDefault(); dropzone.classList.remove('dragover');
-            handleFiles(e.dataTransfer.files);
-        });
-        fileInput.addEventListener('change', (e) => { handleFiles(e.target.files); fileInput.value = ''; });
-
-        // ===== XỬ LÝ SỰ KIỆN DÁN ẢNH (CTRL+V) =====
-        window.addEventListener('paste', (e) => {
-            const items = e.clipboardData.items;
-            const files = [];
-            for (let i = 0; i < items.length; i++) {
-                if (items[i].type.indexOf('image') !== -1) files.push(items[i].getAsFile());
-            }
-            if (files.length > 0) handleFiles(files);
-        });
-
-        // ===== ĐỌC FILE =====
-        function handleFiles(files) {
-            for (let i = 0; i < files.length; i++) {
-                const file = files[i];
-                if (!file.type.match('image.*')) continue;
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    imagesData.push({ id: Date.now() + Math.random(), src: e.target.result });
-                    renderPreview();
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-
-        // ===== RENDER & KÉO THẢ ĐỔI VỊ TRÍ (REORDER) =====
-        function renderPreview() {
-            previewGrid.innerHTML = '';
-            imagesData.forEach((data, index) => {
-                const div = document.createElement('div');
-                div.className = 'preview-item';
-                div.draggable = true;
-                div.dataset.index = index; // Lưu index để reorder
-
-                // Handle Drag to Reorder
-                div.addEventListener('dragstart', handleDragStart);
-                div.addEventListener('dragover', handleDragOver);
-                div.addEventListener('dragenter', handleDragEnter);
-                div.addEventListener('dragleave', handleDragLeave);
-                div.addEventListener('drop', handleDrop);
-                div.addEventListener('dragend', handleDragEnd);
-
-                div.innerHTML = `
-                    <span class="item-number">${index + 1}</span>
-                    <img src="${data.src}" alt="img-${index}">
-                    <button class="remove-btn" title="Xóa ảnh này">✕</button>
-                `;
-
-                // Nút xóa riêng lẻ
-                div.querySelector('.remove-btn').onclick = (e) => {
-                    e.stopPropagation();
-                    imagesData.splice(index, 1);
-                    renderPreview();
-                };
-
-                previewGrid.appendChild(div);
-            });
-
-            clearBtn.style.display = imagesData.length > 0 ? 'flex' : 'none';
-        }
-
-        // --- Logic Kéo thả đổi vị trí ---
-        function handleDragStart(e) {
-            dragSrcEl = this;
-            e.dataTransfer.effectAllowed = 'move';
-            e.dataTransfer.setData('text/html', this.innerHTML);
-            this.style.opacity = '0.4';
-        }
-        function handleDragOver(e) { e.preventDefault(); e.dataTransfer.dropEffect = 'move'; return false; }
-        function handleDragEnter(e) { this.classList.add('drag-over'); }
-        function handleDragLeave(e) { this.classList.remove('drag-over'); }
-        function handleDrop(e) {
-            e.stopPropagation();
-            if (dragSrcEl !== this) {
-                const srcIndex = parseInt(dragSrcEl.dataset.index);
-                const tgtIndex = parseInt(this.dataset.index);
-                // Hoán đổi vị trí trong Array
-                const draggedItem = imagesData.splice(srcIndex, 1)[0];
-                imagesData.splice(tgtIndex, 0, draggedItem);
-                renderPreview(); // Render lại giao diện
-            }
-            return false;
-        }
-        function handleDragEnd(e) {
-            this.style.opacity = '1';
-            const items = document.querySelectorAll('.preview-item');
-            items.forEach(item => item.classList.remove('drag-over'));
-        }
-
-        clearBtn.addEventListener('click', () => {
-            if(confirm("Bạn có chắc muốn xóa toàn bộ ảnh?")) {
-                imagesData = []; renderPreview();
-            }
-        });
-
-        // ===== XUẤT FILE PDF TỐI ƯU HÓA =====
-        generateBtn.addEventListener('click', async () => {
-            if (imagesData.length === 0) {
-                alert("Vui lòng thêm ít nhất 1 ảnh!"); return;
-            }
-
-            statusMsg.style.display = 'block';
-            statusMsg.innerHTML = '✨ Đang tối ưu hóa trang...';
-            generateBtn.disabled = true;
-
-            try {
-                const { jsPDF } = window.jspdf;
-                const pdf = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
-
-                for (let i = 0; i < imagesData.length; i++) {
-                    await addImageToPdf(pdf, imagesData[i].src, i === 0);
-                }
-
-                // Đặt tên file mang thương hiệu PicDF + Timestamp
-                const dateTag = new Date().toISOString().slice(0,10).replace(/-/g,"");
-                const timeTag = new Date().getTime().toString().slice(-4);
-                const fileName = `picdf_export_${dateTag}_${timeTag}.pdf`;
-
-                pdf.save(fileName);
-                statusMsg.innerHTML = '🎉 Xong! File đang tải xuống.';
-                setTimeout(() => { statusMsg.style.display = 'none'; }, 3500);
-
-            } catch (error) {
-                console.error(error);
-                alert("Lỗi xuất PDF. Vui lòng thử lại ảnh nhỏ hơn.");
-                statusMsg.style.display = 'none';
-            } finally {
-                generateBtn.disabled = false;
-            }
-        });
-
-        // Hàm tính toán và chèn ảnh (có viền lề)
-        function addImageToPdf(pdf, imgData, isFirstPage) {
-            return new Promise((resolve) => {
-                const img = new Image();
-                img.src = imgData;
-                img.onload = () => {
-                    const pdfWidth = pdf.internal.pageSize.getWidth();
-                    const pdfHeight = pdf.internal.pageSize.getHeight();
-                    
-                    // Thêm margin (lề) 10mm cho đẹp và chuyên nghiệp
-                    const margin = 10; 
-                    const maxW = pdfWidth - (margin * 2);
-                    const maxH = pdfHeight - (margin * 2);
-
-                    const ratio = Math.min(maxW / img.width, maxH / img.height);
                     const finalWidth = img.width * ratio;
                     const finalHeight = img.height * ratio;
                     
