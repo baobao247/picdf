@@ -70,11 +70,24 @@ const PdfBuilder = (function() {
 
       // Watermark
       if (watermarkText) {
-        pdf.saveGraphicsState && pdf.saveGraphicsState();
-        pdf.setFontSize(28);
-        pdf.setTextColor(180, 180, 180);
-        pdf.text(watermarkText, pageWidth / 2, pageHeight / 2, { align: 'center', angle: 45 });
-        pdf.restoreGraphicsState && pdf.restoreGraphicsState();
+        try {
+          if (pdf.saveGraphicsState && pdf.setGState && pdf.GState) {
+            pdf.saveGraphicsState();
+            pdf.setGState(new pdf.GState({ opacity: 0.22 }));
+            pdf.setFontSize(36);
+            pdf.setTextColor(140, 140, 140);
+            pdf.text(watermarkText, pageWidth / 2, pageHeight / 2, { align: 'center', angle: 45 });
+            pdf.restoreGraphicsState();
+          } else {
+            pdf.setFontSize(32);
+            pdf.setTextColor(200, 200, 200);
+            pdf.text(watermarkText, pageWidth / 2, pageHeight / 2, { align: 'center', angle: 45 });
+          }
+        } catch (e) {
+          pdf.setFontSize(30);
+          pdf.setTextColor(200, 200, 200);
+          pdf.text(watermarkText, pageWidth / 2, pageHeight / 2, { align: 'center', angle: 45 });
+        }
       }
 
       // Page numbers

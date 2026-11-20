@@ -59,8 +59,20 @@
     if (fileStats) {
       fileStats.textContent = totalCount === 0 ? "Chưa có ảnh nào được chọn" : `Đã chọn ${totalCount} ảnh`;
     }
-    generateBtn.disabled = totalCount === 0;
-    previewBtn.disabled = totalCount === 0;
+    const previewHeaderBar = document.getElementById('previewHeaderBar');
+    if (previewHeaderBar) {
+      previewHeaderBar.style.display = totalCount > 0 ? 'flex' : 'none';
+    }
+    if (clearBtn) {
+      clearBtn.style.display = totalCount > 0 ? 'inline-flex' : 'none';
+    }
+    if (previewBtn) {
+      previewBtn.style.display = totalCount > 0 ? 'inline-flex' : 'none';
+      previewBtn.disabled = totalCount === 0;
+    }
+    if (generateBtn) {
+      generateBtn.disabled = totalCount === 0;
+    }
 
     imagesData.forEach((item, index) => {
       const card = document.createElement('div');
